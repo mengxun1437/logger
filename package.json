@@ -17,5 +17,17 @@
   "type": "commonjs",
   "dependencies": {
     "ws": "^8.5.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengxun1437/logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mengxun1437/logger/issues"
+  },
+  "homepage": "https://github.com/mengxun1437/logger#readme"
 }
