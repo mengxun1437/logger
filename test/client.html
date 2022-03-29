@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>logger websocket test</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <h5>
+        here are the messages from server
+        <button id="connect-btn" onclick="connect()">start to show</button>
+      </h5>
+      <div id="message"></div>
+    </div>
+    <script>
+      const getNode = (text) => {
+        const p = document.createElement("p");
+        p.innerText = text;
+        return p;
+      };
+      let websocket;
+      function connect() {
+        websocket = new WebSocket("ws://localhost:10311/logger");
+        websocket.onopen = () => {
+          websocket.binaryType = "arraybuffer";
+          websocket.send("hello");
+          document
+            .querySelector("#message")
+            .appendChild(getNode(`websocket connected~`));
+          document
+            .querySelector("#connect-btn")
+            .setAttribute("style", "display: none");
+        };
+        websocket.onmessage = (res) => {
+          console.log(res);
+          document
+            .querySelector("#message")
+            .appendChild(getNode(`${res.data}`));
+        };
+        websocket.onerror = (e) => {
+          document
+            .querySelector("#message")
+            .appendChildChild(getNode(`websocket error:${JSON.stringify(e)}`));
+        };
+        websocket.onclose = () => {
+          document
+            .querySelector("#message")
+            .appendChild(getNode(`websocket closed~`));
+          websocket.close();
+        };
+      }
+    </script>
+  </body>
+</html>

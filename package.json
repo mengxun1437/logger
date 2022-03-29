@@ -1,0 +1,21 @@
+{
+  "name": "ws-logger",
+  "version": "1.0.0",
+  "description": "use logger for websocket",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "logger",
+    "node",
+    "websocket",
+    "log"
+  ],
+  "author": "mengxun",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ws": "^8.5.0"
+  }
+}
