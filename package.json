@@ -1,5 +1,5 @@
 {
-  "name": "ws-logger",
+  "name": "@mengxun/ws-logger",
   "version": "1.0.0",
   "description": "use logger for websocket",
   "main": "index.js",
